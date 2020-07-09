@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: RedisScheduler
+Version: 2.4.0
+Summary: A redis scheduling lib
+Home-page: https://github.com/anistark/redis-scheduler
+Author: Kumar Anirudha
+Author-email: anirudhastark@yahoo.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: redis-scheduler,scheduler,anistark,python,redis,trigger,sqs,aws,boto3,boto
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP

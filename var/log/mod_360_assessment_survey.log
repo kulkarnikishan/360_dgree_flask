@@ -1,0 +1,1154 @@
+2020-02-25 10:21:10,005 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'is_active': '1', 'to_date': '2020-03-24', 'cycle_name': 'chandrakant', 'client_id': '123', 'from_date': '2020-02-24', 'cycle_id': '0xf90eea785386dec9091cecbe691159e6'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'is_active': '1', 'to_date': '2020-03-24', 'cycle_name': 'chandrakant', 'client_id': '123', 'from_date': '2020-02-24', 'cycle_id': '0xf90eea785386dec9091cecbe691159e6'}]]
+2020-02-25 10:21:10,005 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'is_active': '1', 'to_date': '2020-03-24', 'cycle_name': 'chandrakant', 'client_id': '123', 'from_date': '2020-02-24', 'cycle_id': '0xf90eea785386dec9091cecbe691159e6'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'is_active': '1', 'to_date': '2020-03-24', 'cycle_name': 'chandrakant', 'client_id': '123', 'from_date': '2020-02-24', 'cycle_id': '0xf90eea785386dec9091cecbe691159e6'}]]
+2020-02-25 10:27:17,761 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xf427ff23bb84ee6eb13aa85e808f2b15'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xf427ff23bb84ee6eb13aa85e808f2b15'}]]
+2020-02-25 10:27:17,761 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xf427ff23bb84ee6eb13aa85e808f2b15'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xf427ff23bb84ee6eb13aa85e808f2b15'}]]
+2020-02-25 10:31:11,404 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xc46d73c0a8164d433555b4fdfe45af80'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xc46d73c0a8164d433555b4fdfe45af80'}]]
+2020-02-25 10:31:11,404 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xc46d73c0a8164d433555b4fdfe45af80'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0xc46d73c0a8164d433555b4fdfe45af80'}]]
+2020-02-25 10:33:48,658 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0x66e6540bd5d6ed7f48822136434ba14f'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0x66e6540bd5d6ed7f48822136434ba14f'}]]
+2020-02-25 10:33:48,658 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0x66e6540bd5d6ed7f48822136434ba14f'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'is_active': '1', 'client_id': '123', 'to_date': '2020-03-24', 'cycle_id': '0x66e6540bd5d6ed7f48822136434ba14f'}]]
+2020-02-25 10:37:10,396 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'to_date': '2020-03-24', 'cycle_id': '0x2da7ae75342c8781d2dff12f37c2ca61', 'is_active': '1', 'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'client_id': '123'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'to_date': '2020-03-24', 'cycle_id': '0x2da7ae75342c8781d2dff12f37c2ca61', 'is_active': '1', 'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'client_id': '123'}]]
+2020-02-25 10:37:10,396 ERROR (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'to_date': '2020-03-24', 'cycle_id': '0x2da7ae75342c8781d2dff12f37c2ca61', 'is_active': '1', 'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'client_id': '123'}]]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: '1'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in _init_compiled
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 743, in <genexpr>
+    for key in compiled_params
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1782, in process
+    value = _strict_as_bool(value)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/sqltypes.py", line 1757, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: '1'
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: [{'to_date': '2020-03-24', 'cycle_id': '0x2da7ae75342c8781d2dff12f37c2ca61', 'is_active': '1', 'from_date': '2020-02-24', 'cycle_name': 'chandrakant', 'client_id': '123'}]]
+2020-02-25 10:38:45,320 ERROR (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0xff38d65e3dda19d035416181fe17efd6', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0xff38d65e3dda19d035416181fe17efd6', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-02-25 10:38:45,320 ERROR (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0xff38d65e3dda19d035416181fe17efd6', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0xff38d65e3dda19d035416181fe17efd6', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-02-25 10:44:06,218 ERROR (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0x3aa9a8318424deb6630821dcb67a34fa', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0x3aa9a8318424deb6630821dcb67a34fa', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-02-25 10:44:06,218 ERROR (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0x3aa9a8318424deb6630821dcb67a34fa', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 123, in create
+    db.session.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 494, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2459, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 154, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/session.py", line 2557, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/persistence.py", line 1084, in _emit_insert_statements
+    c = cached_connections[connection].execute(statement, multiparams)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/dist-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`360_degree_assessment`.`client_cycle_details_m`, CONSTRAINT `client_cycle_details_m_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client_table_m` (`client_id`) ON DELETE CASCADE)')
+[SQL: INSERT INTO client_cycle_details_m (cycle_id, client_id, cycle_name, from_date, to_date, is_active) VALUES (%(cycle_id)s, %(client_id)s, %(cycle_name)s, %(from_date)s, %(to_date)s, %(is_active)s)]
+[parameters: {'cycle_id': '0x3aa9a8318424deb6630821dcb67a34fa', 'client_id': '123', 'cycle_name': 'chandrakant', 'from_date': '2020-02-24', 'to_date': '2020-03-24', 'is_active': 1}]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-02-25 11:00:30,063 ERROR Instance '<ClientCycleRepo at 0x7f7914392748>' has been deleted, or its row is otherwise not present.
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 124, in create
+    print(client_cycle)
+  File "/home/fork/360_degree_assessment/app/models.py", line 153, in __repr__
+    "is_active='{}')>".format(self.cycle_id, self.client_id, self.cycle_name, self.from_date, self.to_date,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/attributes.py", line 282, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/attributes.py", line 694, in get
+    value = state._load_expired(state, passive)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/state.py", line 660, in _load_expired
+    self.manager.deferred_scalar_loader(self, toload)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/loading.py", line 985, in load_scalar_attributes
+    raise orm_exc.ObjectDeletedError(state)
+sqlalchemy.orm.exc.ObjectDeletedError: Instance '<ClientCycleRepo at 0x7f7914392748>' has been deleted, or its row is otherwise not present.
+2020-02-25 11:00:30,063 ERROR Instance '<ClientCycleRepo at 0x7f7914392748>' has been deleted, or its row is otherwise not present.
+Traceback (most recent call last):
+  File "/home/fork/360_degree_assessment/app/helpers.py", line 124, in create
+    print(client_cycle)
+  File "/home/fork/360_degree_assessment/app/models.py", line 153, in __repr__
+    "is_active='{}')>".format(self.cycle_id, self.client_id, self.cycle_name, self.from_date, self.to_date,
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/attributes.py", line 282, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/attributes.py", line 694, in get
+    value = state._load_expired(state, passive)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/state.py", line 660, in _load_expired
+    self.manager.deferred_scalar_loader(self, toload)
+  File "/usr/local/lib/python3.6/dist-packages/sqlalchemy/orm/loading.py", line 985, in load_scalar_attributes
+    raise orm_exc.ObjectDeletedError(state)
+sqlalchemy.orm.exc.ObjectDeletedError: Instance '<ClientCycleRepo at 0x7f7914392748>' has been deleted, or its row is otherwise not present.
