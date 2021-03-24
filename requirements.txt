@@ -54,7 +54,7 @@ pytz==2017.2
 redis==2.10.6
 RedisScheduler==2.4.0
 requests==2.18.4
-rsa==3.4.2
+rsa==4.1
 s3transfer==0.1.11
 sendgrid==6.1.0
 six==1.12.0
