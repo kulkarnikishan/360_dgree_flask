@@ -28,7 +28,7 @@ Jinja2==2.10.3
 jmespath==0.9.3
 kombu==4.6.3
 lazy-object-proxy==1.4.2
-Mako==1.0.4
+Mako==1.2.2
 MarkupSafe==0.23
 mccabe==0.6.1
 mime==0.1.0
